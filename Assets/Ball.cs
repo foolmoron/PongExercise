@@ -33,7 +33,8 @@ public class Ball : MonoBehaviour {
 			yield return new WaitForFixedUpdate();
 		}
 		yield return new WaitForSeconds(delay);
-		rigidbody2D.velocity = new Vector2(1f, 1f).normalized * MovementSpeed;
+	    Vector2 startDirection = new Vector2(1f, 1f * Random.value);
+        rigidbody2D.velocity = startDirection.normalized * MovementSpeed;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
